@@ -81,6 +81,12 @@ No hay build step: lo que se commitea es lo que se despliega.
 
 # Información para el sitio.
 
+## Colores oficiales:
+Naranja: Hex #D78825
+Verde: Hex: #319B42
+Empaque de fruta de pan: Hex #B4A91F
+
+
 ## **Nuestra Historia: Raíces, Esfuerzo y Sabor Auténtico**
 
 **De la tierra al corazón de Sixaola**  
