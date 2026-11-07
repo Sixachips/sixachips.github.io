@@ -81,6 +81,9 @@ No hay build step: lo que se commitea es lo que se despliega.
 
 # Información para el sitio.
 
+## slogan
+Producto artesanal procesado por el agricultor.
+
 ## Colores oficiales:
 Naranja: Hex #D78825
 Verde: Hex: #319B42
