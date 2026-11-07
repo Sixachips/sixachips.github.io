@@ -4,8 +4,8 @@
   "description": "Chips de plátano y fruta de pan, fritas al momento.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#fffaf0",
-  "theme_color": "#f5b301",
+  "background_color": "#fcfbf7",
+  "theme_color": "#d78825",
   "icons": [
     {
       "src": "assets/favicon.svg",
