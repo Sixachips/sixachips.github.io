@@ -358,6 +358,60 @@ h2 {
   letter-spacing: 0.05em;
 }
 
+/* 8b. Banner de domino */
+.domino-banner {
+  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark));
+  color: #fff;
+  padding: 3rem 0;
+}
+
+.domino-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.domino-tiles {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.tile {
+  display: inline-block;
+  width: clamp(2.2rem, 5vw, 2.9rem);
+  aspect-ratio: 5 / 10;
+  border-radius: 0.6rem;
+  background:
+    radial-gradient(circle, #24291f 21%, transparent 22%) 25% 22% / 34% 17% no-repeat border-box,
+    radial-gradient(circle, #24291f 21%, transparent 22%) 75% 38% / 34% 17% no-repeat,
+    radial-gradient(circle, #24291f 21%, transparent 22%) 45% 78% / 34% 17% no-repeat,
+    linear-gradient(to bottom, #fffdf6 0 47.5%, #24291f 47.5% 52.5%, #fffdf6 52.5% 100%);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.25);
+  transform: rotate(-6deg);
+}
+.tile--b { transform: rotate(5deg); }
+
+.domino-text {
+  max-width: 46ch;
+}
+
+.domino-text h2 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.domino-text p {
+  color: rgb(255 255 255 / 0.85);
+  margin-bottom: 1.25rem;
+}
+
+.btn-domino {
+  background: var(--color-primary);
+  color: #2b1c07;
+}
+
 /* 9. Nosotros */
 .section-about {
   background: var(--color-text);
