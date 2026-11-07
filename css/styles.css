@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Sixa Chips — hoja de estilos principal
+   Mobile-first, custom properties, sin frameworks.
+   ========================================================================== */
+
+/* 1. Custom properties (tema y tokens de diseño) */
+:root {
+  --color-bg: #fffaf0;
+  --color-surface: #ffffff;
+  --color-text: #3c2b12;
+  --color-muted: #7a6547;
+  --color-primary: #f5b301;
+  --color-primary-dark: #d99a00;
+  --color-accent: #4c9a3f;
+  --color-accent-light: #eaf5e5;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgb(60 43 18 / 0.08);
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --wrap: 68rem;
+}
+
+/* 2. Reset ligero */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+ul { padding: 0; list-style: none; }
+
+a { color: inherit; }
+
+/* 3. Utilidades */
+.container {
+  width: min(100% - 2.5rem, var(--wrap));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-text);
+  color: #fff;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+/* 4. Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(255 250 240 / 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgb(60 43 18 / 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* Navegación (menu hamburguesa en móvil) */
+.site-nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-bottom-color: var(--color-primary);
+}
+
+.nav-toggle {
+  display: grid;
+  place-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgb(60 43 18 / 0.15);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  grid-area: 1 / 1;
+  width: 1.3rem;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+}
+.nav-toggle-bar::before { transform: translateY(-6px); }
+.nav-toggle-bar::after  { transform: translateY(6px); }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: rotate(90deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { opacity: 0; }
+
+@media (max-width: 44rem) {
+  .nav-toggle { display: grid; }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--color-surface);
+    border-bottom: 1px solid rgb(60 43 18 / 0.1);
+    box-shadow: var(--shadow);
+  }
+  .site-nav.is-open { display: block; }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+  .site-nav a { display: block; padding: 0.75rem 0; }
+}
+
+@media (min-width: 44.01rem) {
+  .nav-toggle { display: none; }
+}
+
+/* 5. Hero */
+.hero {
+  padding: 5.5rem 0 4.5rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgb(245 179 1 / 0.22), transparent);
+}
+
+.hero-kicker {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--color-primary-dark);
+}
+
+.hero-lead {
+  max-width: 42ch;
+  margin: 1.25rem auto 2rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+/* Chips decorativas flotando */
+.hero-chips {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.hero-chips li span {
+  display: block;
+  width: clamp(2.5rem, 6vw, 4rem);
+  aspect-ratio: 1;
+  border-radius: 45% 55% 52% 48% / 48% 46% 54% 52%;
+  background: radial-gradient(circle at 30% 25%, #ffd75e, #f5b301 60%, #c98a00);
+  box-shadow: var(--shadow), inset -4px -6px 0 rgb(138 90 0 / 0.25);
+  animation: bob 4s ease-in-out infinite;
+}
+.hero-chips li:nth-child(2) span { animation-delay: 0.6s; background: radial-gradient(circle at 30% 25%, #e6d3a1, #c9a24d 60%, #8a6a20); }
+.hero-chips li:nth-child(3) span { animation-delay: 1.2s; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50%      { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* 6. Botones */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #3c2b12;
+}
+.btn-ghost {
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+  background: transparent;
+}
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  background: var(--color-text);
+  color: #fff;
+}
+
+/* 7. Secciones genéricas */
+section { padding: 4rem 0; }
+
+.section-lead {
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* 8. Products */
+#productos h2 { margin-top: 0; }
+
+.products-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-4px); }
+
+.card-top {
+  display: grid;
+  place-items: center;
+  padding: 2.25rem 0;
+  font-size: 3rem;
+}
+.card-top--banana { background: linear-gradient(135deg, #ffe08a, #f5b301); }
+.card-top--panapen { background: linear-gradient(135deg, #e8dcb6, #c9a24d); }
+.card-top--mix { background: linear-gradient(135deg, #d4edcc, #7fbf72); }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.4rem 1.5rem 1.6rem;
+  flex: 1;
+}
+
+.card h3 { font-size: 1.2rem; }
+
+.card p { color: var(--color-muted); font-size: 0.95rem; }
+
+.card-tag {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 9. Nosotros */
+.section-about {
+  background: var(--color-text);
+  color: #fdf3db;
+}
+
+.section-about h2 { color: var(--color-primary); }
+
+.section-about p {
+  max-width: 60ch;
+  margin-top: 1rem;
+  color: rgb(253 243 219 / 0.8);
+}
+
+.about-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.about-list li::before { content: "✔ "; color: var(--color-primary); font-weight: 700; }
+
+/* 10. Contacto */
+.section-contact { text-align: center; }
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.contact-note {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* 11. Footer */
+.site-footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid rgb(60 43 18 / 0.1);
+  text-align: center;
+}
+
+.footer-note { color: var(--color-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+
+/* 12. Breakpoints para grids mayores */
+@media (min-width: 50rem) {
+  .about-list { grid-template-columns: repeat(3, auto); justify-content: start; }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note { margin-top: 0; }
+}
