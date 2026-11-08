@@ -1,6 +1,6 @@
-# Sixa Chips 🍌🍈
+# Sixachips 🍌🍈
 
-Sitio web oficial de **Sixa Chips** — chips de plátano y chips de fruta de pan,
+Sitio web oficial de **Sixachips** — chips de plátano y chips de fruta de pan,
 fritas al momento con ingredientes naturales.
 
 🔗 **En producción:** <https://sixachips.github.io/>

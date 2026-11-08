@@ -4,7 +4,7 @@ Instrucciones para agentes de IA (y humanos) que trabajen en este repositorio.
 
 ## Descripción del proyecto
 
-Sitio estático de **Sixa Chips**, una empresa de frituras (chips de plátano y
+Sitio estático de **Sixachips**, una empresa de frituras (chips de plátano y
 chips de fruta de pan). Se sirve mediante **GitHub Pages** en
 <https://sixachips.github.io/>.
 
@@ -12,7 +12,7 @@ chips de fruta de pan). Se sirve mediante **GitHub Pages** en
 
 ```
 .
-├── index.html          # Página principal (one-page) de Sixa Chips
+├── index.html          # Página principal (one-page) de Sixachips
 ├── domino.html         # Reglas del dominó en parejas + CTA a la plataforma
 ├── css/styles.css      # Única hoja de estilos, sin frameworks
 ├── js/main.js          # JS progresivo y mínimo (el sitio funciona sin JS)
@@ -84,7 +84,7 @@ No hay build step: lo que se commitea es lo que se despliega.
 
 ## Plataforma de dominó
 
-Sixa Chips tiene una plataforma gratuita para jugar dominó en parejas en
+Sixachips tiene una plataforma gratuita para jugar dominó en parejas en
 <https://domino.sixachips.com>. El flujo del sitio es:
 
 **Banner en `index.html` → `domino.html` (reglas) → botón "Crear un juego" →
