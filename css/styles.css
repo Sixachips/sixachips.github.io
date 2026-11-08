@@ -1,24 +1,29 @@
 /* ==========================================================================
-   Sixa Chips — hoja de estilos principal
+   Sixachips — hoja de estilos principal
    Mobile-first, custom properties, sin frameworks.
+   Tokens según el Brand Book (paleta PANTONE, HEX) y el motivo de la hoja.
    ========================================================================== */
 
 /* 1. Custom properties (tema y tokens de diseño) */
 :root {
-  /* Paleta de marca SixaChips (derivada del empaque real) */
-  --color-bg: #fcfbf7;
-  --color-surface: #ffffff;
-  --color-text: #24291f;
-  --color-muted: #6b7260;
-  --color-primary: #d78825;        /* naranja oficial SixaChips */
-  --color-primary-dark: #b26a10;
-  --color-accent: #319b42;         /* verde oficial SixaChips */
-  --color-accent-dark: #23722e;
-  --color-accent-light: #e7f4e3;
-  --color-olive: #b4a91f;          /* empaque fruta de pan */
+  /* Paleta oficial (Brand Book, sección 4) */
+  --color-green: #009e49;          /* PANTONE 355 C · Verde Hoja */
+  --color-lime: #bad80a;           /* PANTONE 382 C · Verde Limón */
+  --color-orange: #ff6a13;         /* PANTONE 1585 C · Naranja Cálido */
+  --color-black: #2d2926;          /* PANTONE Black C · Negro Neutro */
+  --color-white: #ffffff;          /* PANTONE Bright White · Blanco Base */
+
+  /* Tokens derivados */
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-black);
+  --color-muted: rgb(45 41 38 / 0.72);
+  --color-line: rgb(45 41 38 / 0.12);
+  --color-tint: #f7fae2;           /* Verde Limón al 12 % sobre blanco */
   --radius: 14px;
-  --shadow: 0 8px 24px rgb(36 41 31 / 0.08);
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --shadow: 0 8px 24px rgb(45 41 38 / 0.08);
+  --font-body: "Century Gothic", "Avenir Next", Futura, "Trebuchet MS", system-ui, sans-serif;
+  --font-script: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
   --wrap: 68rem;
 }
 
@@ -78,21 +83,39 @@ a { color: inherit; }
   left: 0.75rem;
   z-index: 100;
   padding: 0.5rem 1rem;
-  background: var(--color-text);
+  background: var(--color-black);
   color: #fff;
   border-radius: 0 0 var(--radius) var(--radius);
   text-decoration: none;
 }
 .skip-link:focus { top: 0; }
 
+/* 3b. Motivo gráfico: la hoja de plátano (Brand Book, sección 3).
+   Se dibuja con una máscara sobre assets/hoja-platano.svg para poder
+   pintarla en cada color de variedad. */
+.leaf {
+  --leaf: var(--color-green);
+  position: absolute;
+  display: block;
+  width: clamp(7rem, 18vw, 13rem);
+  aspect-ratio: 300 / 120;
+  background-color: var(--leaf);
+  -webkit-mask: url("../assets/hoja-platano.svg") center / contain no-repeat;
+  mask: url("../assets/hoja-platano.svg") center / contain no-repeat;
+  pointer-events: none;
+}
+.leaf--green { --leaf: var(--color-green); }
+.leaf--lime { --leaf: var(--color-lime); }
+.leaf--orange { --leaf: var(--color-orange); }
+
 /* 4. Header */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgb(252 251 247 / 0.9);
+  background: rgb(255 255 255 / 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgb(36 41 31 / 0.08);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .header-inner {
@@ -100,34 +123,49 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 4rem;
+  min-height: 4.5rem;
 }
 
+/* Logotipo: SIXACHIPS en naranja con "Chips de" en script centrado debajo */
 .brand {
-  display: flex;
+  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  font-weight: 800;
-  font-size: 1.15rem;
+  line-height: 1;
+  text-align: center;
   text-decoration: none;
-  letter-spacing: -0.02em;
+}
+
+.brand-main {
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.brand-script {
+  margin-top: 0.15rem;
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  color: var(--color-green);
 }
 
 /* Navegación (menu hamburguesa en móvil) */
 .site-nav ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .site-nav a {
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  border-bottom-color: var(--color-primary);
+  border-bottom-color: var(--color-orange);
 }
 
 .nav-toggle {
@@ -136,7 +174,7 @@ a { color: inherit; }
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: 1px solid rgb(36 41 31 / 0.15);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius);
   background: var(--color-surface);
   cursor: pointer;
@@ -173,7 +211,7 @@ a { color: inherit; }
     right: 0;
     display: none;
     background: var(--color-surface);
-    border-bottom: 1px solid rgb(36 41 31 / 0.1);
+    border-bottom: 1px solid var(--color-line);
     box-shadow: var(--shadow);
   }
   .site-nav.is-open { display: block; }
@@ -190,43 +228,47 @@ a { color: inherit; }
   .nav-toggle { display: none; }
 }
 
-/* 5. Hero */
+/* 5. Hero: fondo blanco, márgenes amplios y hoja en las esquinas superiores */
 .hero {
-  padding: 5.5rem 0 4.5rem;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 5rem;
   text-align: center;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgb(215 136 37 / 0.18), transparent);
 }
+
+.leaf--hero-tl { top: 1.5rem; left: -2.5rem; transform: rotate(-24deg); }
+.leaf--hero-tr { top: 1.5rem; right: -2.5rem; transform: rotate(204deg); }
 
 .hero-kicker {
   display: inline-block;
-  padding: 0.35rem 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
-  background: var(--color-accent-light);
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  background: var(--color-lime);
+  color: var(--color-black);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero h1 {
   font-size: clamp(2.4rem, 6vw, 4rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   max-width: 22ch;
   margin-inline: auto;
 }
 
 .hero h1 em {
   font-style: normal;
-  color: var(--color-primary-dark);
+  color: var(--color-orange);
 }
 
 .hero-lead {
   max-width: 42ch;
-  margin: 1.25rem auto 2rem;
+  margin: 1.25rem auto 2.25rem;
   color: var(--color-muted);
   font-size: 1.1rem;
 }
@@ -238,75 +280,97 @@ a { color: inherit; }
   justify-content: center;
 }
 
-/* Chips decorativas flotando */
-.hero-chips {
+.seals {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   justify-content: center;
-  gap: 2rem;
   margin-top: 3rem;
 }
-.hero-chips li span {
-  display: block;
-  width: clamp(2.5rem, 6vw, 4rem);
-  aspect-ratio: 1;
-  border-radius: 45% 55% 52% 48% / 48% 46% 54% 52%;
-  background: radial-gradient(circle at 30% 25%, #e9a54b, #d78825 60%, #a35f0e);
-  box-shadow: var(--shadow), inset -4px -6px 0 rgb(163 95 14 / 0.35);
-  animation: bob 4s ease-in-out infinite;
-}
-.hero-chips li:nth-child(2) span { animation-delay: 0.6s; background: radial-gradient(circle at 30% 25%, #ccc46a, #b4a91f 60%, #7a7113); }
-.hero-chips li:nth-child(3) span { animation-delay: 1.2s; background: radial-gradient(circle at 30% 25%, #4faf5c, #319b42 60%, #23722e); animation-name: bob; animation-fill-mode: both; }
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50%      { transform: translateY(-10px) rotate(5deg); }
-}
-
-/* 6. Botones */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
+.seals li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--color-line);
   border-radius: 999px;
+  font-size: 0.9rem;
   font-weight: 700;
+}
+.seals li::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-green);
+}
+
+/* 6. Botones: naranja para compras, verde para exploración (Brand Book, sección 7) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.75rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.2;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s, color 0.15s;
 }
 .btn:hover,
 .btn:focus-visible {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
-.btn-primary {
-  background: var(--color-primary);
-  color: #2b1c07;
+.btn:focus-visible {
+  outline: 3px solid var(--color-black);
+  outline-offset: 3px;
 }
-.btn-ghost {
-  border: 2px solid var(--color-text);
-  color: var(--color-text);
+
+/* Compra: Naranja Cálido con texto Negro Neutro (contraste ≈ 6.5:1) */
+.btn-primary {
+  background: var(--color-orange);
+  color: var(--color-black);
+}
+
+/* Exploración: Verde Hoja con texto blanco en tamaño grande (≥ 3:1) */
+.btn-explore {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+/* Secundario neutro */
+.btn-outline {
+  border-color: var(--color-black);
+  color: var(--color-black);
   background: transparent;
 }
-.btn-ghost:hover,
-.btn-ghost:focus-visible {
-  background: var(--color-text);
-  color: #fff;
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 /* 7. Secciones genéricas */
-section { padding: 4rem 0; }
+section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
 
 .section-lead {
   color: var(--color-muted);
   margin-top: 0.5rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.5rem;
 }
 
 h2 {
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
-/* 8. Products */
+/* 8. Products: tarjetas tipo empaque (franja blanca central flanqueada por hojas) */
 #productos h2 { margin-top: 0; }
 
 .products-grid {
@@ -319,6 +383,7 @@ h2 {
   display: flex;
   flex-direction: column;
   background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -326,15 +391,49 @@ h2 {
 }
 .card:hover { transform: translateY(-4px); }
 
-.card-top {
+.pack {
+  position: relative;
   display: grid;
-  place-items: center;
-  padding: 2.25rem 0;
-  font-size: 3rem;
+  justify-items: center;
+  align-content: center;
+  gap: 0.2rem;
+  min-height: 10.5rem;
+  padding: 2rem 4rem;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 1px solid var(--color-line);
 }
-.card-top--banana { background: linear-gradient(135deg, #4faf5c, #319b42); }
-.card-top--panapen { background: linear-gradient(135deg, #ccc46a, #b4a91f); }
-.card-top--mix { background: linear-gradient(135deg, #e9a54b, #d78825); }
+
+.pack-brand {
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--color-orange);
+}
+
+.pack-script {
+  font-family: var(--font-script);
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--color-green);
+}
+
+.pack-variety {
+  font-weight: 900;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.pack .leaf {
+  width: 6rem;
+  top: 50%;
+}
+.pack .leaf--side-l { left: -0.9rem; transform: translateY(-50%) rotate(-30deg); }
+.pack .leaf--side-r { right: -0.9rem; transform: translateY(-50%) rotate(150deg); }
 
 .card-body {
   display: flex;
@@ -344,32 +443,35 @@ h2 {
   flex: 1;
 }
 
-.card h3 { font-size: 1.2rem; }
+.card h3 { font-size: 1.25rem; font-weight: 800; }
 
 .card p { color: var(--color-muted); font-size: 0.95rem; }
 
-.card-tag {
+.card .card-tag {
+  align-self: flex-start;
   margin-top: auto;
-  padding-top: 0.5rem;
-  font-weight: 700;
-  font-size: 0.8rem;
-  color: var(--color-accent);
-  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-lime);
+  color: var(--color-black);
+  font-weight: 800;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* 8b. Banner de domino */
+/* 8b. Banner de dominó (plataforma gratuita) */
 .domino-banner {
-  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark));
-  color: #fff;
-  padding: 3rem 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-line);
+  padding: clamp(3.5rem, 8vw, 5rem) 0;
 }
 
 .domino-inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   justify-content: center;
 }
 
@@ -382,13 +484,14 @@ h2 {
   display: inline-block;
   width: clamp(2.2rem, 5vw, 2.9rem);
   aspect-ratio: 5 / 10;
+  border: 1px solid var(--color-line);
   border-radius: 0.6rem;
   background:
-    radial-gradient(circle, #24291f 21%, transparent 22%) 25% 22% / 34% 17% no-repeat border-box,
-    radial-gradient(circle, #24291f 21%, transparent 22%) 75% 38% / 34% 17% no-repeat,
-    radial-gradient(circle, #24291f 21%, transparent 22%) 45% 78% / 34% 17% no-repeat,
-    linear-gradient(to bottom, #fffdf6 0 47.5%, #24291f 47.5% 52.5%, #fffdf6 52.5% 100%);
-  box-shadow: 0 6px 18px rgb(0 0 0 / 0.25);
+    radial-gradient(circle, var(--color-black) 21%, transparent 22%) 25% 22% / 34% 17% no-repeat border-box,
+    radial-gradient(circle, var(--color-black) 21%, transparent 22%) 75% 38% / 34% 17% no-repeat,
+    radial-gradient(circle, var(--color-black) 21%, transparent 22%) 45% 78% / 34% 17% no-repeat,
+    linear-gradient(to bottom, var(--color-white) 0 47.5%, var(--color-black) 47.5% 52.5%, var(--color-white) 52.5% 100%);
+  box-shadow: var(--shadow);
   transform: rotate(-6deg);
 }
 .tile--b { transform: rotate(5deg); }
@@ -398,83 +501,104 @@ h2 {
 }
 
 .domino-text h2 {
-  color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .domino-text p {
-  color: rgb(255 255 255 / 0.85);
-  margin-bottom: 1.25rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
 }
 
-.btn-domino {
-  background: var(--color-primary);
-  color: #2b1c07;
-}
-
-/* 9. Nosotros */
+/* 9. Nosotros: fondo tinte verde limón y hoja en la esquina */
 .section-about {
-  background: var(--color-text);
-  color: #f3f7ee;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-tint);
 }
 
-.section-about h2 { color: var(--color-primary); }
+.leaf--about { bottom: -1.5rem; right: -3rem; transform: rotate(-20deg); }
+
+.section-about h2 { color: var(--color-green); }
 
 .section-about p {
+  position: relative;
   max-width: 60ch;
   margin-top: 1rem;
-  color: rgb(243 247 238 / 0.8);
+  color: var(--color-muted);
 }
 
 .about-list {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.7rem;
   margin-top: 1.75rem;
 }
 
-.about-list li::before { content: "✔ "; color: var(--color-primary); font-weight: 700; }
+.about-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-weight: 700;
+}
+.about-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--color-green);
+}
 
 /* 10. Contacto */
-.section-contact { text-align: center; }
+.section-contact {
+  background: var(--color-tint);
+  text-align: center;
+}
 
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
   justify-content: center;
-  margin-top: 1.75rem;
+  margin-top: 2rem;
 }
 
 .contact-note {
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
+  margin-top: 1.75rem;
+  font-size: 0.85rem;
   color: var(--color-muted);
 }
 
 /* 11. Footer */
 .site-footer {
   padding: 2.5rem 0;
-  border-top: 1px solid rgb(36 41 31 / 0.1);
+  border-top: 1px solid var(--color-line);
   text-align: center;
 }
 
-.footer-note { color: var(--color-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+.footer-legal,
+.footer-note { color: var(--color-muted); font-size: 0.9rem; margin-top: 0.4rem; }
 
 /* 12. Página de reglas (domino.html) */
 .rules {
+  position: relative;
   max-width: 46rem;
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
 }
 
 .rules-header {
+  position: relative;
   margin-bottom: 2.5rem;
 }
 
+.rules-header .leaf--rules { top: -3rem; right: -4rem; transform: rotate(18deg); width: clamp(6rem, 16vw, 9rem); }
+
 .rules-header h1 {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .rules-lead {
@@ -484,13 +608,14 @@ h2 {
 }
 
 .rules-section {
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
+  padding: 0;
 }
 
 .rules-section h2 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   margin-bottom: 0.85rem;
-  color: var(--color-accent-dark);
+  color: var(--color-green);
 }
 
 .rules-list {
@@ -502,21 +627,21 @@ h2 {
 
 ol.rules-list { list-style: decimal; }
 
-.rules-list li::marker { color: var(--color-primary); font-weight: 700; }
+.rules-list li::marker { color: var(--color-orange); font-weight: 800; }
 
 .rules-list li { padding-left: 0.25rem; }
 
 .rules-cta {
-  margin-top: 3rem;
-  padding: 2.25rem 1.75rem;
-  background: var(--color-accent-light);
+  margin-top: 3.5rem;
+  padding: 2.5rem 1.75rem;
+  background: var(--color-tint);
   border-radius: var(--radius);
   text-align: center;
 }
 
 .rules-cta p {
   max-width: 40ch;
-  margin: 0.75rem auto 1.5rem;
+  margin: 0.75rem auto 1.75rem;
   color: var(--color-muted);
 }
 
@@ -532,13 +657,15 @@ ol.rules-list { list-style: decimal; }
   .site-nav--single ul { padding: 0; }
 }
 
-/* 13. Breakpoints para grids mayores */
+/* 13. Breakpoints para layouts mayores */
 @media (min-width: 50rem) {
-  .about-list { grid-template-columns: repeat(3, auto); justify-content: start; }
+  .about-list { grid-template-columns: repeat(3, auto); justify-content: start; gap: 0.7rem 2rem; }
   .footer-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
   }
+  .footer-legal,
   .footer-note { margin-top: 0; }
 }

@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sixa Chips — Chips de plátano y fruta de pan</title>
-  <meta name="description" content="Sixa Chips: chips crujientes de plátano y fruta de pan, fritas al momento con ingredientes naturales. Sabor auténtico, directo a tu antojo.">
-  <meta name="author" content="Sixa Chips">
+  <title>Sixachips — Chips de plátano y fruta de pan</title>
+  <meta name="description" content="Sixachips: chips artesanales de plátano y fruta de pan, procesados por el agricultor en Paraíso de Sixaola, Limón. 100% costarricenses, libres de gluten y sin grasas trans.">
+  <meta name="author" content="Sixachips">
   <link rel="canonical" href="https://sixachips.github.io/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sixachips.github.io/">
-  <meta property="og:title" content="Sixa Chips — Chips de plátano y fruta de pan">
-  <meta property="og:description" content="Chips crujientes de plátano y fruta de pan, fritas al momento con ingredientes naturales.">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="Sixa Chips">
+  <meta property="og:title" content="Sixachips — Chips de plátano y fruta de pan">
+  <meta property="og:description" content="Chips artesanales de plátano y fruta de pan, procesados por el agricultor. Libres de gluten y sin grasas trans.">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:site_name" content="Sixachips">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
@@ -22,7 +22,7 @@
   <!-- Favicon e iconos -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#d78825">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
@@ -32,9 +32,10 @@
   {
     "@context": "https://schema.org",
     "@type": "FoodBusiness",
-    "name": "Sixa Chips",
+    "name": "Sixachips",
+    "legalName": "SIXACHIPS SRL",
     "url": "https://sixachips.github.io/",
-    "description": "Chips de plátano y fruta de pan fritas al momento.",
+    "description": "Chips artesanales de plátano y fruta de pan, procesados por el agricultor.",
     "servesCuisine": "Snacks artesanales",
     "email": "info@sixachips.com",
     "telephone": "+506 8841 5024",
@@ -55,13 +56,9 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Sixa Chips, ir al inicio">
-        <svg class="brand-icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
-          <circle cx="16" cy="16" r="16" fill="#d78825"/>
-          <path d="M16.5 5.5 C 26 6.5, 28 17, 17.5 27 C 7.5 22, 6 9.5, 16.5 5.5 Z" fill="#319b42"/>
-          <path d="M16.5 5.5 C 20 13, 20 20, 17.5 27" stroke="#23722e" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-name">Sixa&nbsp;Chips</span>
+      <a class="brand" href="#top" aria-label="Sixachips, ir al inicio">
+        <span class="brand-main">Sixachips</span>
+        <span class="brand-script">Chips de</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -82,6 +79,9 @@
   <main id="main">
     <!-- Hero -->
     <section id="top" class="hero">
+      <span class="leaf leaf--green leaf--hero-tl" aria-hidden="true"></span>
+      <span class="leaf leaf--green leaf--hero-tr" aria-hidden="true"></span>
+
       <div class="container hero-inner">
         <p class="hero-kicker">Producto artesanal procesado por el agricultor</p>
         <h1>El antojo que siempre <em>cruje</em></h1>
@@ -90,14 +90,15 @@
           frescos y sin complicaciones. De la finca a la bolsa.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#productos">Ver productos</a>
-          <a class="btn btn-ghost" href="#contacto">Haz tu pedido</a>
+          <a class="btn btn-primary" href="#contacto">Haz tu pedido</a>
+          <a class="btn btn-explore" href="#productos">Ver productos</a>
         </div>
 
-        <ul class="hero-chips" aria-hidden="true">
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
+        <ul class="seals">
+          <li>Libre de gluten</li>
+          <li>Sin grasas trans</li>
+          <li>100% costarricense</li>
+          <li>Materia prima nacional</li>
         </ul>
       </div>
     </section>
@@ -110,9 +111,15 @@
 
         <div class="products-grid">
           <article class="card">
-            <div class="card-top card-top--banana" aria-hidden="true"><span>🍌</span></div>
+            <div class="pack" aria-hidden="true">
+              <span class="leaf leaf--green leaf--side-l"></span>
+              <span class="pack-brand">Sixachips</span>
+              <span class="pack-script">Chips de</span>
+              <span class="pack-variety">Plátano verde</span>
+              <span class="leaf leaf--green leaf--side-r"></span>
+            </div>
             <div class="card-body">
-              <h3>Chips de plátano</h3>
+              <h3>Chips de plátano verde</h3>
               <p>
                 Plátano verde en láminas finas, frito al momento y sazonado con
                 sal marina. Crujiente, dorado y ligeramente dulce.
@@ -122,7 +129,13 @@
           </article>
 
           <article class="card">
-            <div class="card-top card-top--panapen" aria-hidden="true"><span>🍈</span></div>
+            <div class="pack" aria-hidden="true">
+              <span class="leaf leaf--lime leaf--side-l"></span>
+              <span class="pack-brand">Sixachips</span>
+              <span class="pack-script">Chips de</span>
+              <span class="pack-variety">Fruta de pan</span>
+              <span class="leaf leaf--lime leaf--side-r"></span>
+            </div>
             <div class="card-body">
               <h3>Chips de fruta de pan</h3>
               <p>
@@ -134,9 +147,15 @@
           </article>
 
           <article class="card">
-            <div class="card-top card-top--mix" aria-hidden="true"><span>🥭</span></div>
+            <div class="pack" aria-hidden="true">
+              <span class="leaf leaf--green leaf--side-l"></span>
+              <span class="pack-brand">Sixachips</span>
+              <span class="pack-script">Chips de</span>
+              <span class="pack-variety">Mix</span>
+              <span class="leaf leaf--orange leaf--side-r"></span>
+            </div>
             <div class="card-body">
-              <h3>Mix Sixa</h3>
+              <h3>Mix Sixachips</h3>
               <p>
                 Lo mejor de los dos mundos: plátano y fruta de pan en la misma
                 bolsa, para los que no pueden elegir.
@@ -150,6 +169,7 @@
 
     <!-- Nosotros -->
     <section id="nosotros" class="section-about">
+      <span class="leaf leaf--green leaf--about" aria-hidden="true"></span>
       <div class="container about-inner">
         <h2>Fritas aquí, crujidas donde sea</h2>
         <p>
@@ -159,9 +179,9 @@
           muchas ganas de que te chupes los dedos.
         </p>
         <ul class="about-list">
-          <li> Ingredientes frescos y locales</li>
-          <li> Fritas al momento, nunca almacenadas de ayer</li>
-          <li> Pedidos por encargo para eventos y negocios</li>
+          <li>Ingredientes frescos y locales</li>
+          <li>Fritas al momento, nunca almacenadas de ayer</li>
+          <li>Pedidos por encargo para eventos y negocios</li>
         </ul>
       </div>
     </section>
@@ -181,7 +201,7 @@
             <strong>dominó en parejas</strong> desde el navegador. Aprende las
             reglas y luego crea tu partida, con quien quieras y donde quieras.
           </p>
-          <a class="btn btn-domino" href="domino.html">
+          <a class="btn btn-explore" href="domino.html">
             Aprende las reglas
           </a>
         </div>
@@ -193,12 +213,12 @@
       <div class="container contact-inner">
         <h2>Haz tu pedido</h2>
         <p>
-          Escríbenos para pedidos, eventos o para llevar Sixa Chips a tu
+          Escríbenos para pedidos, eventos o para llevar Sixachips a tu
           negocio. Respondemos el mismo día.
         </p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:info@sixachips.com">info@sixachips.com</a>
-          <a class="btn btn-ghost" href="tel:+50688415024">+506 8841 5024</a>
+          <a class="btn btn-primary" href="tel:+50688415024">+506 8841 5024</a>
+          <a class="btn btn-outline" href="mailto:info@sixachips.com">info@sixachips.com</a>
         </div>
         <p class="contact-note">Paraíso de Sixaola, Limón · Costa Rica</p>
       </div>
@@ -207,7 +227,8 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Sixa Chips. Todos los derechos reservados.</p>
+      <p>© <span id="year">2026</span> Sixachips. Todos los derechos reservados.</p>
+      <p class="footer-legal">SIXACHIPS SRL · Cédula jurídica 3-102828139</p>
       <p class="footer-note">Hecho con cariño y mucho aceite caliente</p>
     </div>
   </footer>

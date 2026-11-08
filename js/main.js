@@ -1,4 +1,4 @@
-// Sixa Chips — mejoras progresivas (el sitio funciona sin JS)
+// Sixachips — mejoras progresivas (el sitio funciona sin JS)
 
 // 1. Menú móvil: toggle accesible
 const toggle = document.querySelector(".nav-toggle");

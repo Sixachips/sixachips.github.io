@@ -1,11 +1,11 @@
 {
-  "name": "Sixa Chips",
-  "short_name": "Sixa Chips",
-  "description": "Chips de plátano y fruta de pan, fritas al momento.",
+  "name": "Sixachips",
+  "short_name": "Sixachips",
+  "description": "Chips de plátano y fruta de pan, procesados por el agricultor.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#fcfbf7",
-  "theme_color": "#d78825",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "assets/favicon.svg",

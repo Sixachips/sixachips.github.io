@@ -103,10 +103,14 @@ estándar/latina**, con **puntuación acumulada a 100 puntos**. Detalles clave:
 ## slogan
 Producto artesanal procesado por el agricultor.
 
-## Colores oficiales:
-Naranja: Hex #D78825
-Verde: Hex: #319B42
-Empaque de fruta de pan: Hex #B4A91F
+## Colores oficiales (Brand Book, PANTONE Coated):
+- Verde Hoja: PANTONE 355 C · #009E49 (hojas, plátano verde, acentos institucionales)
+- Verde Limón: PANTONE 382 C · #BAD80A (plátano limón y sal, fruta de pan)
+- Naranja Cálido: PANTONE 1585 C · #FF6A13 (plátano maduro, "SIXACHIPS", compras)
+- Negro Neutro: PANTONE Black C · #2D2926 (tipografía de variedad y textos)
+- Blanco Base: #FFFFFF (fondo predominante)
+
+Botones: naranja para compras (`.btn-primary`), verde para exploración (`.btn-explore`).
 
 
 ## **Nuestra Historia: Raíces, Esfuerzo y Sabor Auténtico**

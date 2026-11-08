@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 60 C 70 8, 190 2, 294 60 C 190 118, 70 112, 6 60 Z"/>
+  <path d="M6 60 H 282"/>
+  <path d="M62 60 C 82 46, 102 38, 132 32"/>
+  <path d="M62 60 C 82 74, 102 82, 132 88"/>
+  <path d="M112 60 C 132 48, 152 42, 182 38"/>
+  <path d="M112 60 C 132 72, 152 78, 182 82"/>
+  <path d="M164 60 C 178 52, 194 48, 218 46"/>
+  <path d="M164 60 C 178 68, 194 72, 218 74"/>
+</svg>
