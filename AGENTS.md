@@ -12,7 +12,8 @@ chips de fruta de pan). Se sirve mediante **GitHub Pages** en
 
 ```
 .
-├── index.html          # Página única (one-page), todo el contenido aquí
+├── index.html          # Página principal (one-page) de Sixa Chips
+├── domino.html         # Reglas del dominó en parejas + CTA a la plataforma
 ├── css/styles.css      # Única hoja de estilos, sin frameworks
 ├── js/main.js          # JS progresivo y mínimo (el sitio funciona sin JS)
 ├── assets/             # Favicon e imágenes
@@ -80,6 +81,24 @@ No hay build step: lo que se commitea es lo que se despliega.
 - No eliminar `.nojekyll`.
 
 # Información para el sitio.
+
+## Plataforma de dominó
+
+Sixa Chips tiene una plataforma gratuita para jugar dominó en parejas en
+<https://domino.sixachips.com>. El flujo del sitio es:
+
+**Banner en `index.html` → `domino.html` (reglas) → botón "Crear un juego" →
+domino.sixachips.com**
+
+Las reglas publicadas en `domino.html` corresponden a la **variante
+estándar/latina**, con **puntuación acumulada a 100 puntos**. Detalles clave:
+
+- Doble seis, 28 fichas, 4 jugadores en 2 parejas fijas, 7 fichas por jugador.
+- Primera mano: abre quien tiene el doble seis. Después abre el **ganador de
+  la mano anterior**. Turnos en sentido contrario a las agujas del reloj.
+- Dobles transversales, sin spinners; jugada obligatoria si hay ficha válida.
+- Juego trancado: gana la pareja con menos pips restantes; empate = sin puntos.
+- No mencionar las variantes jamaiquina/caribeña ni el sistema 6-Love.
 
 ## slogan
 Producto artesanal procesado por el agricultor.

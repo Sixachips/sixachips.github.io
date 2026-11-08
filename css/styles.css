@@ -460,7 +460,79 @@ h2 {
 
 .footer-note { color: var(--color-muted); font-size: 0.9rem; margin-top: 0.5rem; }
 
-/* 12. Breakpoints para grids mayores */
+/* 12. Página de reglas (domino.html) */
+.rules {
+  max-width: 46rem;
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+}
+
+.rules-header {
+  margin-bottom: 2.5rem;
+}
+
+.rules-header h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.rules-lead {
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.rules-section {
+  margin-top: 2.25rem;
+}
+
+.rules-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-accent-dark);
+}
+
+.rules-list {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+
+ol.rules-list { list-style: decimal; }
+
+.rules-list li::marker { color: var(--color-primary); font-weight: 700; }
+
+.rules-list li { padding-left: 0.25rem; }
+
+.rules-cta {
+  margin-top: 3rem;
+  padding: 2.25rem 1.75rem;
+  background: var(--color-accent-light);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.rules-cta p {
+  max-width: 40ch;
+  margin: 0.75rem auto 1.5rem;
+  color: var(--color-muted);
+}
+
+/* La página de reglas no usa menú hamburguesa: mostrar el enlace siempre */
+@media (max-width: 44rem) {
+  .site-nav--single {
+    display: block;
+    position: static;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .site-nav--single ul { padding: 0; }
+}
+
+/* 13. Breakpoints para grids mayores */
 @media (min-width: 50rem) {
   .about-list { grid-template-columns: repeat(3, auto); justify-content: start; }
   .footer-inner {
