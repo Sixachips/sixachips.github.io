@@ -19,7 +19,7 @@ Sitio 100% estático, sin frameworks ni dependencias:
 ```
 .
 ├── index.html          # Página principal (one-page)
-├── domino.html         # Reglas del dominó + CTA a domino.sixachips.com
+├── domino.html         # Reglas del dominó + CTA a la plataforma (sixachips.github.io/fastplay-client/)
 ├── css/styles.css      # Estilos
 ├── js/main.js          # Menú móvil y año dinámico
 ├── assets/             # Favicon e imágenes

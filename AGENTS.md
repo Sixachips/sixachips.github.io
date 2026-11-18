@@ -85,10 +85,15 @@ No hay build step: lo que se commitea es lo que se despliega.
 ## Plataforma de dominó
 
 Sixachips tiene una plataforma gratuita para jugar dominó en parejas en
-<https://domino.sixachips.com>. El flujo del sitio es:
+<https://sixachips.github.io/fastplay-client/>. El flujo del sitio es:
 
 **Banner en `index.html` → `domino.html` (reglas) → botón "Crear un juego" →
-domino.sixachips.com**
+sixachips.github.io/fastplay-client**
+
+`domino.sixachips.com` ya no sirve el cliente: es solo el servidor de juego
+(WebSocket `wss://domino.sixachips.com/ws`). Los enlaces viejos a
+`domino.sixachips.com` redirigen (301) a la página de GitHub Pages,
+conservando la query `?room=CODE` de los enlaces compartidos.
 
 Las reglas publicadas en `domino.html` corresponden a la **variante
 estándar/latina**, con **puntuación acumulada a 100 puntos**. Detalles clave:
